@@ -1024,25 +1024,6 @@ public class practice  {
     public static void main(String[] args) throws IOException {
          practice p = new practice();
         p.readFilefromText("D:\\codeIntellij\\src\\praticalLTDT\\lap1\\ktgk");
-       // p.dfsRecusive(0,p.Matrixs);
-       //System.out.println(p.print(p.primH(0)));
-      //System.out.println(p.Dfs(0,p.Matrixs));
-     //System.out.println(p.print(p.kruskal(p.Matrixs)));
-     //System.out.println(p.checkCycle(0,5,p.Matrixs));
-       // System.out.print(p.CycleEuler(0));
-        //System.out.println(p.print(p.prim(p.Matrixs)));
-        //System.out.println(Arrays.toString(p.dijktra(0, p.Matrixs)));
-        //System.out.println(p.chutrinhEuler());
-       // System.out.println(Arrays.toString(p.dijktra(0,p.Matrixs)));
-
-        //p.toMau(0,p.Matrixs);
-        //p.color(0,p.Matrixs);
-        // System.out.println( Arrays.toString(p.dijktra(0,p.Matrixs)));
-       //System.out.println(p.print(p.primReview(0,p.Matrixs)));
-        //p.floy(p.Matrixs);
-        //System.out.println(p.print(p.krucal(p.Matrixs)));
-       //p.prim(0,p.Matrixs);
-        //p.floyedexpand(p.Matrixs);
         p.halminton(p.Matrixs);
     }
 
