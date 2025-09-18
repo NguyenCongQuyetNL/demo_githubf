@@ -436,40 +436,7 @@ public class practice  {
      *
      * @param matrix
      */
-    public int[][] prim(int[][]matrix) {
-        //if(checkLienThong()==false)return null;
-        int [][] results = new int[numVexs][numVexs];
-        boolean[]visited = new boolean[numVexs];
-        int v =0;
-        Queue<Canh>queue= new PriorityQueue<>(new Comparator<Canh>() {
-            @Override
-            public int compare(Canh o1, Canh o2) {
-                if (o1.getTs() > o2.getTs()) {
-                    return 1;
-                } else
-                return -1;
-            }
-        });
-        int count=0;
-        while(count<numVexs) {
-           visited[v]=true;
-            for (int j = 0; j < numVexs; j++) {
-                if (Matrixs[v][j]!=0&&visited[j]==false){
-                    queue.add(new Canh(v,j,Matrixs[v][j]));
-                    System.out.println(queue);
-                }
-            }
-            Canh canh = queue.poll();
-            while(checkCycle(canh.getDd(), canh.getDc(), results)==true){
-                canh= queue.poll();
-                if(queue.isEmpty())return results;
-            }
-            ++count;
-            results[canh.getDd()][canh.getDc()]=results[canh.getDc()][canh.getDd()]= canh.getTs();
-            v = canh.getDc();
-        }
-        return results;
-    }
+
     /**
      *
      * @param d
@@ -648,62 +615,7 @@ public class practice  {
            }
         }
      }
-     public int [] dijktra( int v,int [][]matrix){
-        int [] result  = new int[numVexs];
-       /* int []path = new int [numVexs];
-        for(int i =0;i<matrix.length;i++){
-            result[i] = Integer.MAX_VALUE/2;
-            path[i] = -1;
-        }
-        Queue<Integer> queue = new PriorityQueue<>(new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                if(result[o1]>result[o2])return 1;
-                return -1;
-            }
-        });
-        result[v]=0;
-        queue.add(v);
-        while(!queue.isEmpty()){
-             int t =queue.poll();
-            for (int j =0;j<numVexs;j++){
-                if(matrix[t][j]!=0){
-                    if(result[j]>result[t]+matrix[t][j]){
-                        result[j]=result[t]+matrix[t][j];
-                        queue.add(j);
-                       // System.out.println(queue);
-                        path[j]=t;
-                    }
-                }
-            }
-        }*/
-         int [] path  = new int [numVexs];
-         for(int i =0;i<numVexs;i++){
-             result[i]=Integer.MAX_VALUE;
-             path[i]=-1;
-         }
-         Queue<Integer>queue = new PriorityQueue<>(new Comparator<Integer>() {
-             @Override
-             public int compare(Integer o1, Integer o2) {
-                 if(result[o1]>result[o2])return 1;
-                 return -1;
-             }
-         });
-         queue.add(v);
-         result[v]=0;
-         while(!queue.isEmpty()){
-             int u = queue.poll();
-             for(int i =0;i<numVexs;i++){
-                 if(matrix[u][i]!=0){
-                     if(result[i]>result[u]+matrix[u][i]){
-                         result[i]=result[u]+matrix[u][i];
-                         path[i]=u;
-                     }
-                 }
-             }
-         }
-        return result;
-     }
+
      public int[][]prim(int d,int[][]matrix){
         int [][]result = new int[numVexs][numVexs];
         int [] temp = new int[numVexs];
@@ -746,70 +658,12 @@ public class practice  {
      /**
       * 
       */
-     public int[][]primReview(int v,int[][]matrix){
-        int[][]result= new int [numVexs][numVexs];
-        boolean[]track = new boolean[numVexs];
-        Queue<Canh>queue = new PriorityQueue<>(new Comparator<Canh>() {
-            @Override
-            public int compare(Canh o1, Canh o2) {
-                if(o1.getTs()>o2.getTs()){
-                    return 1;
-                }
-                return -1;
-            }
-        });
-        int count = 0;
-        while(count<numVexs){
-            track[v]=true;
-            for(int i =0;i<numVexs;i++){
-                if(matrix[v][i]!=0&&track[i]==false){
-                    queue.add(new Canh(v,i,matrix[v][i]));
-                }
-            }
-            Canh canh =  queue.poll();
-            while(checkCycle(canh.getDd(), canh.getDc(),result)){
-                if(queue.isEmpty())return result;
-                 canh = queue.poll();
-            }
-            result[canh.getDd()][canh.getDc()]=result[canh.getDc()][canh.getDd()]=canh.getTs();
-            count++;
-            v=canh.getDc();
-        }
-        return result;
-     }
+
 
 /**
  * 
  */
-     public int[][]krucal(int [][]matrix){
-        int [][]result  = new int[numVexs][numVexs];
-        Queue<Canh>queue = new PriorityQueue<>(new Comparator<Canh>() {
-            public int compare(Canh o1, Canh o2) {
-                if(o1.getTs()>o2.getTs()){
-                    return 1;
-                }
-                return -1;
-            }
-        });
-        for(int i =0;i<numVexs;i++){
-            for(int j =i;j<numVexs;j++){
-                if(matrix[i][j]!=0){
-                    queue.add(new Canh(i,j,matrix[i][j]));
-                }
-            }
-        }
-        System.out.println(queue);
-        int count =0;
-        while(count<numVexs){
-            Canh s = queue.poll();
-            //System.out.println(s.getTs());
-           if(!hasCycle(s.getDd(),s.getDc(),result)){
-                count++;
-                result[s.getDd()][s.getDc()]=result[s.getDc()][s.getDd()]=s.getTs();
-            }
-        }
-        return result;
-     }
+
 
      public void bellmanford(int[] [] matrix ){
         int []  result = new int [numVexs];
