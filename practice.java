@@ -1043,7 +1043,7 @@ public class practice  {
         //System.out.println(p.print(p.krucal(p.Matrixs)));
        //p.prim(0,p.Matrixs);
         //p.floyedexpand(p.Matrixs);
-        p.halminton(p.Matrixs);
+       
     }
 
 }
